@@ -31,6 +31,24 @@
       console.log('no discount');
 
     }
+    //Part 2 -Coin flip game
+    const randomNumber =Math.random();
+    const result='';
+    // if(randomNumber>0 && randomNumber<1/2) {
+    //   result ='heads';
+
+    // } else {
+    //   result ='tails';
+
+    // }
+    const guess='heads';
+    // if(guess===result) {
+    //   console.log('you win!');
+    // } else {
+    //   console.log('you lose!');
+    // }
+    result = randomNumber<1/2 ? 'heads' : 'tails';
+    console.log(guess===result ? 'you win!': 'you lose!');
 
   </script>
 </body>
