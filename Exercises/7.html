@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 7</title>
+</head>
+<body>
+  
+  <script>
+    function greet(name) {
+      if(name) {
+        console.log('hello '+name);
+      } else {
+        console.log('hi there');
+      }
+
+    }
+    greet();
+
+    function convertToFahrenheit(celcius) {
+      fahrenheit = (celcius*9/5)+32;
+      return fahrenheit;
+
+    }
+    console.log(convertToFahrenheit(25));
+
+    function convertToCelsius(fahrenheit) {
+      celcius = (fahrenheit-32)*5/9;
+      return celcius;
+
+    }
+    console.log(convertToCelsius(86));
+
+    function convertTemperture(degrees, unit) {
+      if(unit==='F'){
+        const result = convertToCelsius(degrees);
+        return result+'C';
+
+      } else {
+        const result = convertToFahrenheit(degrees);
+        return result+'F';
+
+      }
+
+    }
+    console.log(convertTemperture(25, 'C'));
+
+    function convertLength(length, from, to) {
+      if(from==='miles' && to==='km'){
+        return (length*1.6)+to;
+
+      } else if(from==='km' && to=='miles') {
+        return (length/1.6) +to;
+
+      } else if (from==='miles' && to==='ft') {
+        return length*5280+to;
+
+      } else if(from==='km' && to==='ft') {
+        return length*3281+to;
+
+      }
+      else if(from==='miles' || from==='km' ||from==='ft') {
+        return length+to;
+
+      } else {
+        return 'invalid input'+from;
+      }
+    }
+    console.log(convertLength(5, 'miles', 'km'));
+  </script>
+</body>
+</html>
