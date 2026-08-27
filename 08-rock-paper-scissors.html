@@ -19,9 +19,16 @@
   <button onclick="
     playGame('scissors')
   ">Scissors</button>
+
+  <button onclick="resetScore()">Reset Score</button>
   
   <script>
     //script is exceuted first when the page is reloaded
+    const score = {
+      wins: 0,
+      losses:0,
+      ties: 0
+    };
     function playGame(playerMove) {
       const computerMove = pickComputerMove();
       let result ='';
@@ -53,7 +60,16 @@
 
       }
 
-      alert(`You played ${playerMove}. Computer played ${computerMove}. You ${result}`);
+      if(result==='win') {
+        score.wins+=1;
+      } else if(result==='lose') {
+        score.losses+=1;
+      } else if(result==='tie') {
+        score.ties+=1;
+      }
+
+      alert(`You played ${playerMove}. Computer played ${computerMove}. You ${result}
+Wins:${score.wins} Losses:${score.losses} Ties:${score.ties}`);
     }
 
     function pickComputerMove() {
@@ -68,6 +84,13 @@
         computerMove = 'scissors';
       }
        return computerMove;
+    }
+
+    //reset score
+    function resetScore() {
+      score.wins=0;
+      score.losses=0;
+      score.ties=0;
     }
     
   </script>
