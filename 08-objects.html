@@ -9,26 +9,69 @@
 <body>
   
   <script>
-    const product = {
-      name:'socks',
-      price:1090
-
-    };
-    console.log(product);
-    console.log(product.name);
-
-    product.name = 'shirt'; //changes name value to shirt
-    console.log(product);
-
-    //to add new property
-    product.rates = '5';
-    console.log(product);
-
-    //delete propert
-    delete product.rates;
-    console.log(product);
-
     //reasons for objects; allow to group & use multiple values together
+    //why use bracket notation? when you have a property with - i.e delivery-time. JS confuses it with minus
+    //object+ function = method
+    //JSON -> JavaScript Object Notation i.e
+    // {
+    //   "name": "shirt",
+    //   "delivery-name": "1day",
+    //   "rating": {
+    //     "stars": 4.5,
+    //     "count": 87
+    //   } 
+    // }
+    //does not support functions. it's understood by every programming language. used when data is sent between computers & storing data
+    ///built-in JSON converts JS to JSON
+    //JSON typeof === string
+    //local storage = allows to store data in variables permanently
+
+
+    // const product = {
+    //   name:'socks',
+    //   price:1090
+
+    // };
+    // console.log(product);
+    // console.log(product.name);
+
+    // product.name = 'shirt'; //changes name value to shirt
+    // console.log(product);
+
+    // //to add new property
+    // product.rates = '5';
+    // console.log(product);
+
+    // //delete propert
+    // delete product.rates;
+    // console.log(product);
+
+    const product2 = {
+      name:'shirt',
+      'delivery-time': '1 day', //another way to add a property
+      rating: {
+        stars: 4.5,
+        count: 87
+      }, // this is an obj within an object
+      fun: function function1() {
+        console.log('function inside object');
+      }
+    }
+    console.log(product2['name']); //bracker notation
+    console.log(product2.rating.stars);
+    product2.fun();
+
+    console.log(product2['delivery-time']); 
+
+    //console is an obj
+    console.log(typeof console);
+    console.log(typeof console.log);//a function
+
+    //JSON
+    console.log(JSON.stringify(product2)); //converts to JSON.
+
+    const jsonString = JSON.parse(JSON.stringify(product2));//JSON -> JS obj
+    console.log(jsonString);
 
   </script>
 </body>

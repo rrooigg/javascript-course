@@ -24,11 +24,10 @@
   
   <script>
     //script is exceuted first when the page is reloaded
-    const score = {
-      wins: 0,
-      losses:0,
-      ties: 0
-    };
+
+    //get string of out storage when the page loads
+    const score = JSON.parse(localStorage.getItem('score'));
+
     function playGame(playerMove) {
       const computerMove = pickComputerMove();
       let result ='';
@@ -68,6 +67,13 @@
         score.ties+=1;
       }
 
+      //to save a value inside local storage
+      //localStorage.setItem('message', 'hello'); 
+       //only saves in strings. message= the name of the data
+
+      localStorage.setItem('score', JSON.stringify(score));
+
+
       alert(`You played ${playerMove}. Computer played ${computerMove}. You ${result}
 Wins:${score.wins} Losses:${score.losses} Ties:${score.ties}`);
     }
@@ -91,6 +97,8 @@ Wins:${score.wins} Losses:${score.losses} Ties:${score.ties}`);
       score.wins=0;
       score.losses=0;
       score.ties=0;
+
+      localStorage.removeItem('score');
     }
     
   </script>
