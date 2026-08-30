@@ -26,6 +26,49 @@
     //JSON typeof === string
     //local storage = allows to store data in variables permanently
 
+    //objects are references; the property & value is stored in memory then the person name points to it
+    //i.e
+    const person = {
+      name:'nadifa',
+
+    };
+    const object2 = person; //copy of reference(person(Obj)) that points to the data(name) in person(object)
+
+    //properties of references
+    //1. changes the name despite it being a const this is because it just points & doesn't containe actual name
+    person.name='mary';
+    console.log(person); 
+
+    //2. even object2 changes
+    console.log(object2); 
+
+    //3. can't compare objects directly i.e
+    const object3 = {
+      name:"mary"
+
+    };
+    console.log(object3 === person); //this will output false even though the data inside is same. this is becuase this comparison is comparing the references only so not equal(was not set to be equal)
+
+    console.log(object2 === person); ///but this is true because they were equated above(point to the same obj in memory) so the references are the same.
+
+    //4. destructuring- do it if the variable has the same name as the object property
+    //const name = object3.name; 
+    const { name } = object3; //this is destructuring
+    console.log(name);
+    //another example of destructuring
+    const object4 = {
+      //name:name
+      name,
+      // method: function function1() {
+      //   console.log('method');
+      // }
+      //the below is called shorthand method  from above method
+      method() {
+        console.log('method');
+      }
+    };
+    console.log(object4.name);
+    object4.method();
 
     // const product = {
     //   name:'socks',
@@ -72,6 +115,12 @@
 
     const jsonString = JSON.parse(JSON.stringify(product2));//JSON -> JS obj
     console.log(jsonString);
+
+    //Auto-Boxing; 
+    // doesn't work with undefined & null
+    // wraps strings to a special object thus use methods i.e
+    console.log('hello'.length); //5
+
 
   </script>
 </body>

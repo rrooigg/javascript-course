@@ -30,18 +30,25 @@
     <button onclick="calculate('0')">0</button>
     <button onclick="calculate('.')">.</button>
     <button onclick="calculation=eval(calculation);
-    console.log(calculation)">=</button>
+    console.log(calculation);
+    localStorage.setItem('calculation', calculation)">=</button>
     <button onclick="calculate('/')">/</button>
     
   </p>
+  <!--Add a Clear button-->
+  <button onclick="calculation=' ';
+  console.log(calculation);
+  localStorage.setItem('calculation', calculation)">Clear</button>
 
   <script>
     //Excerise 5 Part
-    let calculation = '';
+    let calculation = localStorage.getItem('calculation') ||'';
 
     function calculate(value) {
       calculation+=value;
       console.log(calculation);
+
+      localStorage.setItem('calculation', calculation);
 
     }
 
