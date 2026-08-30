@@ -6,7 +6,8 @@
   <title>Excercise 8- Objects</title>
 </head>
 <body>
-
+  <button onclick="playGame('heads')">heads</button>
+  <button onclick="playGame('tails')">tails</button>
 
   <script>
     const product1 = {
@@ -43,6 +44,21 @@
 
     }
     isSameProduct(product1, product2);
+
+
+    //Part 2 -Coin flip game
+    let score = null || JSON.parse(localStorage.getItem('score'));
+
+    function playGame(guess) {
+      const randomNumber =Math.random();
+      let result='';
+
+      result = randomNumber<1/2 ? 'heads' : 'tails';
+      console.log(guess===result ? `you win!${score.wins++}`: `you lose!${score.losses++}`);
+
+      localStorage.setItem('score', JSON.stringify(score));
+
+    }
 
   </script>
 </body>
