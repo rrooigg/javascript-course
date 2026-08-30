@@ -1,0 +1,28 @@
+<!--DOM Projects-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+</head>
+<body>
+  <p>YouTube Subscribe Button</p>
+  <button onclick="subscribe()" class="subscribe-button">Subscribe</button>
+  
+  <script>
+    //prefered to use innerText to innerHTML because the latter considers the whitespaces i.e <button> Subscribe </button> & so when comparing it(like in the if() below) will not be equal even though the text are the same
+    function subscribe() {
+      const buttonElement = document.querySelector('.subscribe-button');
+
+      if(buttonElement.innerHTML === 'Subscribe') {
+        buttonElement.innerHTML='Subscribed';
+
+      } else {
+        buttonElement.innerHTML='Subscribe';
+      }
+      
+    }
+  </script>
+</body>
+</html>
