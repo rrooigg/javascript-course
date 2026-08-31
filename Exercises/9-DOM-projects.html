@@ -1,0 +1,73 @@
+<!--DOM Projects-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+</head>
+<body>
+  <p>YouTube Subscribe Button</p>
+  <button onclick="subscribe()" class="subscribe-button">Subscribe</button>
+
+  <p>Amazon Shipping Calculator</p>
+  <p>Order under $40= +$10 shipping.</p>
+  <p>Order over $40= FREE shipping.</p>
+  <input placeholder="Cost of Order" class="js-cost-input" onkeydown="handleCostKeydown(event)">
+  <button onclick="calculateTotal()">Calculate</button>
+  <p class="js-total-cost"></p>
+
+  <!--Part 2 -Challenge Exercises 9-->
+  <input class="js-onkeyup" onkeyup="handleOnKeyup(event)">
+  <p class="js-display-onkeyup"></p>
+  
+  <script>
+    //1. prefered to use innerText to innerHTML because the latter considers the whitespaces i.e <button> Subscribe </button> & so when comparing it(like in the if() below) will not be equal even though the text are the same
+
+    //2. clicks & keydowns => events
+    //onclick & onkeydown => event listeners
+    //others are; onscroll, onmouseenter(hovering over), onmouseleave(stop hovering)
+
+    //3. window represents whatever is in a browser i.e
+    window.console
+    window.document
+    window.alert //this is for popups
+
+    function handleOnKeyup(event) {
+      let character = document.querySelector('.js-onkeyup').value;
+
+      document.querySelector('.js-display-onkeyup').innerHTML=character;
+    }
+
+    function handleCostKeydown(event) {
+      if(event.key === 'Enter') {
+        calculateTotal();
+      }
+    }
+    
+    function calculateTotal() {
+      let cost = Number(document.querySelector('.js-cost-input').value); //4. value from DOM is a string thus using Number()
+
+      if(cost < 40) {
+        cost = cost+10;
+
+      }
+      
+      document.querySelector('.js-total-cost').innerHTML=`$${cost.toFixed(2)}`;
+      
+    }
+
+    function subscribe() {
+      const buttonElement = document.querySelector('.subscribe-button');
+
+      if(buttonElement.innerHTML === 'Subscribe') {
+        buttonElement.innerHTML='Subscribed';
+
+      } else {
+        buttonElement.innerHTML='Subscribe';
+      }
+      
+    }
+  </script>
+</body>
+</html>

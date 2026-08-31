@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="
+      document.querySelector('.js-cart-quantity').innerHTML=`Cart Quantity: ${cartQuantity}`;
+    ">Show Quantity</button>
+
+    <button onclick="
+      addToCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+      addToCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+      addToCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+      addToCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+      addToCartQuantity(5);
+    ">+5</button>
+
+    <button onclick="
+      removeFromCartQuantity(1);
+    ">Remove from cart</button>
+
+    <button onclick="
+      removeFromCartQuantity(2);
+    ">-2</button>
+
+    <button onclick="
+      removeFromCartQuantity(3);
+    ">-3</button>
+
+    <button onclick="
+      cartQuantity = 0;
+      document.querySelector('.js-cart-quantity').innerHTML=`Cart Quantity: ${cartQuantity}`;
+    ">Reset Cart</button>
+
+    <p class="js-cart-quantity"></p>
+
+    <script>
+      let cartQuantity = 0;
+      function addToCartQuantity(number) {
+        if (cartQuantity + number > 10) {
+          return alert('The cart is full');
+        } else {
+          cartQuantity += number;
+          document.querySelector('.js-cart-quantity').innerHTML=`Cart Quantity: ${cartQuantity}`;
+        }
+      }
+
+      function removeFromCartQuantity(number) {
+        if (cartQuantity - number < 0) {
+          return alert('Not enough items in the cart');
+        } else {
+          cartQuantity -= number;
+          document.querySelector('.js-cart-quantity').innerHTML=`Cart Quantity: ${cartQuantity}`;
+        }
+      }
+    </script>
+  </body>
+</html>
