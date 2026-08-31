@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Execrise 9-DOM</title>
+</head>
+<body>
+  <button>9a</button>
+  <button class="second-button">9b</button>
+
+  <button onclick="coinGame('heads')">heads</button>
+  <button onclick="coinGame('tails')">tails</button>
+  <p class="js-coin-flip"></p>
+
+  <input placeholder="Name" class="js-input-name" onkeydown="handleOnKeydown(event)">
+  <button onclick="displayName()">Submit</button>
+  <p class="js-display-name"></p>
+  
+  <script>
+    function displayName() {
+      const name = document.querySelector('.js-input-name').value;
+
+      document.querySelector('.js-display-name').innerHTML=`Your name is: ${name}`;
+
+    }
+
+    function handleOnKeydown(event) {
+      if(event.key === 'Enter') {
+        displayName();
+      }
+    }
+
+    function coinGame(side) {
+      if(side === 'heads') {
+        document.querySelector('.js-coin-flip').innerHTML='You chose:heads';
+      } else {
+        document.querySelector('.js-coin-flip').innerHTML='You chose:tails';
+      }
+    }
+
+    console.log(document.querySelector('button'));
+    document.querySelector('.second-button').innerHTML='9b done!';
+    
+
+  </script>
+</body>
+</html>
