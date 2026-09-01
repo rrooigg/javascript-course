@@ -5,8 +5,15 @@ function isToggled(selector) {
   if(buttonElement.classList.contains('is-toggled')){
     buttonElement.classList.remove('is-toggled');
   } else {
+    turnOffPreviousButton();
     buttonElement.classList.add('is-toggled');
   }
 }
-  
+//turn-off any toggled button
+function turnOffPreviousButton() {
+  const previousButton = document.querySelector('.is-toggled');
+  if(previousButton) {
+    previousButton.classList.remove('is-toggled');
+  }
+}
 

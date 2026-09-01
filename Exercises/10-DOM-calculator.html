@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 5</title>
+  <style>
+    body{
+      background-color: black;
+      font-family: Arial;
+    }
+    .display-calculation{
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+     }
+    .number{
+      background-color: rgb(113, 112, 112);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      color: white;
+    }
+    .operation{
+      background-color: orange;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!--Excerise 7 Part 2--> <!--eval(..) turns the string to actual math-->
+  <p class="js-calculator display-calculation"></p>
+  <p>
+    <button onclick="calculate('1')" class="number">1</button>
+    <button onclick="calculate('2')" class="number">2</button>
+    <button onclick="calculate('3')" class="number">3</button>
+    <button onclick="calculate('+')" class="operation">+</button>
+  </p>
+
+  <p>
+    <button onclick="calculate('4')" class="number">4</button>
+    <button onclick="calculate('5')" class="number">5</button>
+    <button onclick="calculate('6')" class="number">6</button>
+    <button onclick="calculate('-')" class="operation">-</button>
+  </p>
+  <p>
+    <button onclick="calculate('7')" class="number">7</button>
+    <button onclick="calculate('8')" class="number">8</button>
+    <button onclick="calculate('9')" class="number">9</button>
+    <button onclick="calculate('*')" class="operation">*</button>
+  </p>
+  <p>
+    <button onclick="calculate('0')" class="number">0</button>
+    <button onclick="calculate('.')" class="number">.</button>
+    <button onclick="calculation=eval(calculation);
+      document.querySelector('.js-calculator').innerHTML=calculation;;
+      localStorage.setItem('calculation', calculation)" class="number">=</button>
+    <button onclick="calculate('/')" class="operation">/</button>
+    
+  </p>
+  <!--Add a Clear button-->
+  <button onclick="calculation=' ';
+    document.querySelector('.js-calculator').innerHTML=calculation;
+    localStorage.setItem('calculation', calculation)" class="number">Clear</button>
+
+  <script>
+    //Excerise 5 Part
+    let calculation = localStorage.getItem('calculation') ||'';
+
+    function calculate(value) {
+      calculation+=value;
+      document.querySelector('.js-calculator').innerHTML=calculation;
+
+      localStorage.setItem('calculation', calculation);
+
+    }
+
+  </script>
+</body>
+</html>
